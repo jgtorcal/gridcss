@@ -1,0 +1,76 @@
+
+@import 'mixins';
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.5fr 1.2fr 0.8fr;
+    grid-template-areas: 
+        "nav nav nav nav" 
+        "sidebar main main main" 
+        "sidebar content1 content2 content3" 
+        "footer footer footer footer";
+    grid-gap: 0.5rem;
+}
+
+nav {
+    background-color: #e4bad4;
+    grid-area: nav;
+}
+
+main {
+    background-color: #f6dfeb;
+    grid-area: main;
+}
+
+#sidebar {
+    background-color: #f8eded;
+    grid-area: sidebar;
+}
+
+#content1 {
+    background-color: #faf3f3;
+    grid-area: content1;
+    @include flex-centervh;
+}
+
+#content2 {
+    background-color: #e1e5ea;
+    grid-area: content2;
+    @include flex-centervh;
+}
+
+#content3 {
+    background-color: #a7bbc7;
+    grid-area: content3;
+    @include flex-centervh;
+}
+
+footer {
+    background-color: #caf7e3;
+    grid-area: footer;
+    @include flex-centervh;
+}
+
+nav, main, #sidebar, #content1, #content2, #content3, footer {
+    padding: 20px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 550px){
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+        grid-template-areas: 
+            "nav"
+            "sidebar"
+            "main"
+            "content1"
+            "content2"
+            "content3"
+            "footer";
+    }
+}
